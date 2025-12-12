@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accident Severity Predictor</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>Accident Severity Predictor</h1>
+            <p>Enter the accident details to estimate injury severity</p>
+        </header>
+
+        <div class="content-wrapper">
+
+            <!-- FORM CARD -->
+            <div class="card form-card">
+                <h2>Input Details</h2>
+
+                <form id="predictForm">
+
+                    <label>Day of Week</label>
+                    <select name="Day_of_week" required>
+                        <option>Monday</option>
+                        <option>Tuesday</option>
+                        <option>Wednesday</option>
+                        <option>Thursday</option>
+                        <option>Friday</option>
+                        <option>Saturday</option>
+                        <option>Sunday</option>
+                    </select>
+
+                    <label>Age Band of Driver</label>
+                    <select name="Age_band_of_driver" required>
+                        <option>Under 18</option>
+                        <option>18-30</option>
+                        <option>31-50</option>
+                        <option>Over 51</option>
+                    </select>
+
+                    <label>Sex of Driver</label>
+                    <select name="Sex_of_driver" required>
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+
+                    <label>Weather Conditions</label>
+                    <select name="Weather_conditions" required>
+                        <option>Normal</option>
+                        <option>Raining</option>
+                        <option>Snowing</option>
+                        <option>Fog or Mist</option>
+                        <option>Other</option>
+                    </select>
+
+                    <label>Light Conditions</label>
+                    <select name="Light_conditions" required>
+                        <option>Daylight</option>
+                        <option>Darkness</option>
+                        <option>Darkness - lights lit</option>
+                        <option>Darkness - no lights</option>
+                    </select>
+
+                    <label>Number of Vehicles Involved</label>
+                    <input type="number" name="Number_of_vehicles_involved" min="1" required />
+
+                    <label>Number of Casualties</label>
+                    <input type="number" name="Number_of_casualties" min="1" required />
+
+                    <label>Hour of Day (0–23)</label>
+                    <input type="number" name="Hour" min="0" max="23" required />
+
+                    <button type="submit" class="btn-primary">Predict Severity</button>
+                </form>
+
+            </div>
+
+            <!-- RESULT CARD -->
+            <div class="card result-card">
+                <h2>Prediction Result</h2>
+
+                <div id="result" class="result-box hidden">
+                    <!-- JS will inject content here -->
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Javascript -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+</body>
+</html>

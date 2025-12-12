@@ -1,0 +1,270 @@
+/* Global reset-ish */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+    background: #0f172a;
+    color: #e5e7eb;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+}
+
+/* Main container */
+.container {
+    max-width: 1100px;
+    width: 100%;
+    background: radial-gradient(circle at top left, #1d4ed8 0, #020617 55%);
+    border-radius: 18px;
+    padding: 24px 24px 32px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+header h1 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: #f9fafb;
+    margin-bottom: 6px;
+}
+
+header p {
+    color: #cbd5f5;
+    font-size: 0.95rem;
+}
+
+/* Layout for form + result */
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 900px) {
+    .content-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Cards */
+.card {
+    background: rgba(15, 23, 42, 0.92);
+    border-radius: 16px;
+    padding: 18px 18px 20px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.card h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 14px;
+    color: #e5e7eb;
+}
+
+/* Form styles */
+form label {
+    display: block;
+    font-size: 0.88rem;
+    margin-bottom: 4px;
+    color: #cbd5f5;
+}
+
+form input,
+form select {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    border: 1px solid #374151;
+    background: #020617;
+    color: #e5e7eb;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+form input:focus,
+form select:focus {
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 1px rgba(96, 165, 250, 0.55);
+    background: #020617;
+}
+
+form select option {
+    background: #020617;
+    color: #e5e7eb;
+}
+
+/* Button */
+.btn-primary {
+    width: 100%;
+    padding: 10px 14px;
+    margin-top: 6px;
+    border-radius: 999px;
+    border: none;
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    color: #f9fafb;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.4);
+}
+
+.btn-primary:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+    box-shadow: 0 14px 26px rgba(37, 99, 235, 0.55);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 8px 16px rgba(30, 64, 175, 0.5);
+}
+
+/* Result card */
+.result-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.result-box {
+    margin-top: 6px;
+    padding: 14px 14px 16px;
+    border-radius: 14px;
+    background: #020617;
+    border: 1px solid #374151;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Severity title */
+.result-title {
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.result-title span {
+    font-weight: 700;
+    color: #f9fafb;
+}
+
+/* Risk badge */
+.risk-section {
+    margin: 10px 0 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.risk-label {
+    font-size: 0.86rem;
+    color: #e5e7eb;
+}
+
+.risk-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+/* Default risk pill color (will be overridden) */
+.risk-pill.low {
+    background: rgba(22, 163, 74, 0.18);
+    color: #bbf7d0;
+    border: 1px solid rgba(34, 197, 94, 0.7);
+}
+
+.risk-pill.medium {
+    background: rgba(245, 158, 11, 0.18);
+    color: #fed7aa;
+    border: 1px solid rgba(251, 191, 36, 0.7);
+}
+
+.risk-pill.high {
+    background: rgba(239, 68, 68, 0.18);
+    color: #fecaca;
+    border: 1px solid rgba(248, 113, 113, 0.8);
+}
+
+.risk-score-text {
+    font-size: 0.8rem;
+    color: #9ca3af;
+}
+
+/* Probabilities section */
+.prob-header {
+    margin-top: 4px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #e5e7eb;
+}
+
+/* Probability list */
+.prob-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Individual probability row */
+.prob-row {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.prob-label-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #e5e7eb;
+}
+
+/* Bar background */
+.prob-bar-bg {
+    width: 100%;
+    height: 7px;
+    border-radius: 999px;
+    background: #111827;
+    overflow: hidden;
+}
+
+/* Bar fill */
+.prob-bar-fill {
+    height: 100%;
+    width: 0;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #22c55e, #3b82f6);
+    transition: width 0.4s ease;
+}
+
+/* Small error box style */
+.error-box {
+    color: #fecaca;
+    background: rgba(248, 113, 113, 0.2);
+    border: 1px solid rgba(248, 113, 113, 0.5);
+    padding: 10px 12px;
+    border-radius: 12px;
+    font-size: 0.86rem;
+}
