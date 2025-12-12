@@ -1,0 +1,25 @@
+{
+  "model_type": "ANN_SMOTE_8_features",
+  "input_dim": 31,
+  "feature_columns": [
+    "Day_of_week",
+    "Age_band_of_driver",
+    "Sex_of_driver",
+    "Weather_conditions",
+    "Light_conditions",
+    "Number_of_vehicles_involved",
+    "Number_of_casualties",
+    "Hour"
+  ],
+  "target_name": "Accident_Severity",
+  "classes": [
+    "Fatal injury",
+    "Serious Injury",
+    "Slight Injury"
+  ],
+  "label_encoder_classes": [
+    "Fatal injury",
+    "Serious Injury",
+    "Slight Injury"
+  ]
+}
